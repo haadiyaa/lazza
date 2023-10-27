@@ -207,11 +207,16 @@
         const name = document.getElementById("name").value;
         const phone = document.getElementById("phone").value;
         const email = document.getElementById("email").value;
+        const check="@";
         const subject = document.getElementById("subject").value;
         const msg = document.getElementById("msg").value;
     
+        
         if (name=== "") {
           document.getElementById("nameError").textContent = "Name is required.";
+        }
+        else if (name.length < 3){
+          document.getElementById("nameError").textContent = "Name must be at least 3 characters.";
         }
         else {
           document.getElementById("nameError").textContent = "";
@@ -219,11 +224,17 @@
         if (phone=== "") {
           document.getElementById("phoneError").textContent = "Number is required.";
         }
+        else if(phone.length!=10){
+          document.getElementById("phoneError").textContent = "Enter exactly 10 digits.";
+        }
         else {
           document.getElementById("phoneError").textContent = "";
         }
         if (email=== "") {
           document.getElementById("emailError").textContent = "email is required.";
+        }
+        else if(!email.includes(check)){
+          document.getElementById("emailError").textContent = "email is not valid.";
         }
         else {
           document.getElementById("emailError").textContent = "";
